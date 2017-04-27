@@ -1,0 +1,115 @@
+extends layout
+
+block content
+	.row
+		.col-md-4
+			.panel.panel-default
+				.panel-heading
+					.panel-title
+						h4
+							i.fa.fa-code-fork.i-left
+							| Version
+				.panel-body
+					b.i-left Hostname: 
+					span= osInfo.hostname()
+					br
+					b.i-left Platform:
+					span= osInfo.platform() + ' ' + osInfo.arch() + ' ' + osInfo.release()
+					
+					div
+						b CPU
+						- var i = 0;
+						for cpu in osInfo.cpus()
+							- i++;
+							div.small
+								b.i-left CORE #{i+':'}
+								span= cpu.model
+								div= cpu.speed+'Hz'
+						
+					
+					
+			.panel.panel-default
+				.panel-heading
+					.panel-title
+						h4
+							i.fa.fa-clock-o.i-left
+							| Uptime
+				.panel-body
+					div
+						b.i-left Server time:
+						span= JSFunc.humanize.date('H:i:s')
+					div
+						b.i-left Uptime: 
+						span= JSFunc.humanize.date('H ',osInfo.uptime())
+						| hour 
+						span= JSFunc.humanize.date('i ',osInfo.uptime())
+						| minutes 
+						span= JSFunc.humanize.date('s ',osInfo.uptime())
+						| seconds 
+			
+		.col-md-4
+
+			.panel.panel-default
+				.panel-heading
+					.panel-title
+						h4
+							i.fa.fa-microchip.i-left
+							| CPU
+				.panel-body
+					| ...
+				
+
+					
+			.panel.panel-default
+				.panel-heading
+					.panel-title
+						h4
+							i.fa.fa-thermometer-empty.i-left
+							| Temperature
+				.panel-body
+					| ...
+					
+			.panel.panel-default
+				.panel-heading
+					.panel-title
+						h4 Memory
+				.panel-body
+					| ...
+
+
+
+		.col-md-4
+			.panel.panel-default
+				.panel-heading
+					.panel-title
+						h4 Swap
+				.panel-body
+					| ...
+			.panel.panel-default
+				.panel-heading
+					.panel-title
+						h4 SD card
+				.panel-body
+					| ...
+			.panel.panel-default
+				.panel-heading
+					.panel-title
+						h4 Network
+				.panel-body
+					
+					- var interfaces = osInfo.networkInterfaces();
+					
+					- for(var key in interfaces)
+							.clearfix
+								.col-xs-2
+									b= key
+								.col-xs-10
+						
+							for item in interfaces[key]
+								.small.clearfix
+									.col-xs-2
+										div= item.family
+									.col-xs-10
+										div= item.address
+										div= item.mac
+							hr

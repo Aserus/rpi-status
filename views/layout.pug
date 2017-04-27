@@ -1,0 +1,17 @@
+doctype html
+html
+	head
+		title= title
+		
+		for item in getStylesheetList()
+			link(href=item+'?random='+_random rel='stylesheet')
+
+		for item in getScriptList()
+			script(src=item+'?random='+_random)
+	body
+		
+		
+		include navbar
+		
+		
+		block content
