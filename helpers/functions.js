@@ -102,5 +102,6 @@ module.exports = {
     //if(email.indexOf('@') <3) return false;
     return true;
   },
-  humanize:humanize
+  humanize:humanize,
+  moment:moment
 }

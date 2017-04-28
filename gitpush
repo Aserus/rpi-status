@@ -1,4 +1,4 @@
 #!/bin/bash
-git add b* c* h* l* m* p* r* v* .gitignore p* s* w* gitpush
+git add * .gitignore gitpush
 git commit -m $1
 git push

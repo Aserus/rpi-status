@@ -40,11 +40,12 @@ block content
 						span= JSFunc.humanize.date('H:i:s')
 					div
 						b.i-left Uptime: 
-						span= JSFunc.humanize.date('H ',osInfo.uptime())
+						- var uptime = osInfo.uptime()-3*3600;
+						span= JSFunc.humanize.date('H ',uptime)
 						| hour 
-						span= JSFunc.humanize.date('i ',osInfo.uptime())
+						span= JSFunc.humanize.date('i ',uptime)
 						| minutes 
-						span= JSFunc.humanize.date('s ',osInfo.uptime())
+						span= JSFunc.humanize.date('s ',uptime)
 						| seconds 
 			
 		.col-md-4
