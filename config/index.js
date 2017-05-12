@@ -3,6 +3,8 @@ var	nconf = require('nconf');
 
   nconf.argv()
        .env()
-       .file({ file: path.join(__dirname,'config.json') });
+       .file(path.join(__dirname,'config.json'))
+       //.add('detectors', { type: 'file', file: path.join(__dirname,'detectors.json') })
+       .file('detectors',path.join(__dirname,'detectors.json') );
 
 module.exports=nconf;

@@ -23,6 +23,7 @@ module.exports = function (app) {
     	views:	path.join(__dirname,'../', 'views'),
     	languages:	path.join(__dirname,'../', 'languages'),
     	public:	path.join(__dirname,'../', 'public'),
+    	detectors:	path.join(__dirname,'../', 'detectors'),
     	models:	path.join(__dirname,'../', 'models'),
     	media:	path.join(__dirname,'../', 'public', 'media')
     }
@@ -46,11 +47,10 @@ module.exports = function (app) {
       console.log(colors.grey("# Memory usage: ") + colors.cyan(humanize.filesize(memory.heapUsed) + " / " + humanize.filesize(memory.heapTotal)));
     }
 
-    JSLog = require('../helpers/clog.js');
-    JSFunc = require("../helpers/functions");
+    JSLog = require(JSPath.join("/helpers/clog.js"));
+    JSFunc = require(JSPath.join("/helpers/functions"));
+    JSError = require(JSPath.join("/helpers/error"));
     //JSForm = require("../helpers/form");
-
-
 
     require("./express")(app);
 
@@ -58,16 +58,8 @@ module.exports = function (app) {
 
     //require("./view")(app);
 
-    JSError = require("./error")
 
 
-
-    var port = JSFunc.normalizePort(process.env.PORT || JSApp.getConfig('app:port'));
-
-    if(port == 80){
-  //    config.set('app:url','http://localhost');
-    }else if(port == 3000){
-  //    config.set('app:url','http://localhost:'+port);
-    }
+    require(JSPath.join("/detectors"));
 
 };
