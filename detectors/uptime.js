@@ -27,7 +27,7 @@ function logData(data){
   JSLog.info('uptime       = '+format(data));
 }
 
-
+//http://www.tux.in.ua/articles/1098
 
 module.exports = function (name,options,dataFile) {
 
