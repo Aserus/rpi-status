@@ -15,7 +15,7 @@
     "express-less": "0.1.0",
     "humanize": "0.0.9",
     "moment": "2.18.1",
-    "morgan": "1.8.1",
+    "morgan": ">=1.9.1",
     "nconf": "0.8.4",
     "os-usage": "0.0.3",
     "os-utils": "0.0.14",
