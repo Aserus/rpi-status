@@ -10,7 +10,7 @@
     "colors": "1.1.2",
     "connect-busboy": "0.0.2",
     "cookie-parser": "1.4.3",
-    "debug": "2.6.4",
+    "debug": ">=2.6.9",
     "express": "4.15.2",
     "express-less": "0.1.0",
     "humanize": "0.0.9",
